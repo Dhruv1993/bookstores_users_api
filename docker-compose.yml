@@ -1,0 +1,18 @@
+version: '3'
+services:
+  nginx:
+    depends_on:
+      - api
+    restart: always
+    build:
+      dockerfile: Dockerfile
+      context: ./nginx
+    ports:
+      #localhost will start on 3050 when we will run docker-compose up
+      - '3050:80'
+  api:
+    build:
+      dockerfile: Dockerfile
+      context: .
+    volumes:
+      - .:/usr/src/app/
