@@ -1,6 +1,8 @@
 package errors
 
-import "net/http"
+import (
+	"net/http"
+)
 
 //RestError structure
 type RestError struct {
